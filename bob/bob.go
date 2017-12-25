@@ -1,5 +1,5 @@
 /*
-package bob simulates the bob, a teenager who has typical
+Package bob simulates the bob, a teenager who has typical
 replies in every conversation.
 
 1. Bob answers 'Sure' if he is asked a question.
@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-// function Hey decides what kind of remark is made to Bob
+// Hey decides what kind of remark is made to Bob
 func Hey(remark string) string {
 	remark = sanitizeString(remark)
 
@@ -46,18 +46,15 @@ func sanitizeString(remark string) string {
 	return remark
 }
 
-// Check if the remark is a question
+// isQuestion checks if the remark is a question
 func isQuestion(remark string) bool {
 	if string(remark[len(remark)-1]) == "?" {
 		return true
 	}
-	//if strings.Contains(remark, "?") {
-	//	return true
-	//}
 	return false
 }
 
-// Check if bob is being shouted on
+// isScream checks if bob is being shouted on
 func isScream(remark string) bool {
 	upperRemark := strings.ToUpper(remark)
 	if remark == upperRemark {
@@ -66,7 +63,7 @@ func isScream(remark string) bool {
 	return false
 }
 
-// check if the string contains anything other than letters and blank spaces.
+// containsLetter checks if the string contains anything other than letters and blank spaces.
 func containsLetter(remark string) bool {
 	for _, r := range remark {
 		if (r > 'A' && r < 'Z') || (r > 'a' && r < 'z') {
